@@ -170,10 +170,10 @@ fn gen_markdown(from: &std::path::Path, ctx: &Context, tera: &tera::Tera) {
     {
       let mut file = std::fs::File::create(to.to_str().unwrap()).unwrap();
       use std::io::Write;
-      write!(file, "{}", &full_html);
+      write!(file, "{}", &full_html).unwrap();
     }
 
-    std::fs::remove_file(&partial_file_path);
+    std::fs::remove_file(&partial_file_path).unwrap();
   } else {
     panic!("{}: metadata is not a mapping", from.display());
   }
@@ -193,7 +193,7 @@ fn main() {
         path: "".to_string(),
       },
     };
-    let mut tera_templates = tera::Tera::new("**.html").unwrap();
+    let tera_templates = tera::Tera::new("**.html").unwrap();
     for entry_mb in walkdir::WalkDir::new(".").follow_links(true) {
       let entry = entry_mb.unwrap();
       let path = entry.path();
