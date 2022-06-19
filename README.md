@@ -5,6 +5,13 @@ Ezekiel (consonant to easy-kyll, a simpler jekyll) is a "no bs" static website g
 * [Tera](https://github.com/Keats/tera) templates.
 * [Mmark](https://github.com/mmark-md/mmark) strict markdown processor (needs to be installed separately, e.g. `whalebrew install caphindsight/mmark-cli-dockerized`).
 
+## Usage
+
+```bash
+$ whalebrew install caphindsight/ezekiel
+$ ezekiel build
+```
+
 ## Current state
 
 Absolutely unusable dirty script with unreadable error messages.
